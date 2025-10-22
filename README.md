@@ -1,64 +1,48 @@
-# Vigontina Stats RT - Test Environment 🧪
+# Vigontina Stats
 
-> **Ambiente di Test Indipendente** - Clone di vigontina-stats per testing real-time
+Applicazione per la gestione live delle statistiche partita della Vigontina San Paolo.
 
-Questo repository è una **copia completa e indipendente** del progetto [vigontina-stats](https://github.com/enricobrunazzo/vigontina-stats) creata per test e sperimentazioni senza impattare il sistema di produzione.
+## Novità (Ottobre 2025)
 
-## 🎯 Caratteristiche
+- Sezione "Azioni Salienti" durante il live match con tre azioni rapide:
+  - 🧤 Parata (scelta squadra; se Vigontina, selezione portiere)
+  - 🎯 Tiro Fuori (scelta squadra; se Vigontina, selezione giocatore)
+  - 🧱 Palo/Traversa (icona neutra "🧱"; scelta tra Palo o Traversa nel modal; scelta squadra; se Vigontina, selezione giocatore)
+- Layout pulsanti riorganizzato per velocità in live:
+  - Riga 1: Gol Vigontina | Gol Avversario
+  - Riga 2: Autogol | Rigore
+  - Riga 3: Azioni Salienti (Parata | Tiro Fuori | Palo/Traversa)
+- Lista eventi aggiornata con icone e colori dedicati per ogni azione.
 
-- ✅ **Codice identico** al repository principale
-- 🔥 **Database Firebase separato** (da configurare)
-- 🚀 **Deploy Vercel indipendente** (da configurare)
-- 🧪 **Environment di test isolato**
-- 📝 **Configurazioni personalizzate per RT**
+## Flusso Live (riassunto)
 
-## 🏗️ Setup Ambiente Indipendente
+1. Crea una nuova partita e imposta i periodi.
+2. Avvia il periodo: controlli timer e punteggio.
+3. Usa i pulsanti evento:
+   - Gol/Autogol/Rigore
+   - Azioni Salienti: Parata, Tiro Fuori, Palo/Traversa
+4. Termina il periodo e salva.
 
-### 1. Firebase (Nuovo Database)
-```bash
-# Creare nuovo progetto Firebase
-# Aggiornare src/config/firebase.js con nuove credenziali RT
-```
+## Dettaglio Eventi
 
-### 2. Vercel Deploy
-```bash
-# Collegare a nuovo progetto Vercel
-# URL target: vigontina-statsRT.vercel.app
-```
+- Gol Vigontina: selezione marcatore (+ assist opzionale)
+- Gol Avversario: inserimento diretto
+- Autogol: scelta squadra (il punto viene assegnato alla squadra avversaria)
+- Rigore: scelta squadra, esito (gol/fallito), marcatore se Vigontina
+- Parata: scelta squadra; se Vigontina, selezione portiere
+- Tiro Fuori: scelta squadra; se Vigontina, selezione giocatore
+- Palo/Traversa: scelta tra Palo/Traversa, scelta squadra; se Vigontina, selezione giocatore
 
-### 3. Installazione
-```bash
-git clone https://github.com/enricobrunazzo/vigontina-statsRT.git
-cd vigontina-statsRT
-npm install
-npm run dev
-```
+## Note UI
 
-## 📊 Differenze con Produzione
+- L'icona di Palo/Traversa è stata resa neutra e uniforme: **🧱** è usata sia nel pulsante principale sia all'interno del modal per le opzioni "Palo" e "Traversa". La distinzione viene comunque mostrata negli eventi come "🧱 Palo" oppure "⎯ Traversa".
+- In Prova Tecnica non sono consentiti eventi gol/azioni: modificare solo il punteggio manualmente.
 
-| Aspetto | Produzione | Test RT |
-|---------|------------|----------|
-| Database | Firebase Prod | Firebase RT |
-| URL | vigontina-stats.vercel.app | vigontina-statsRT.vercel.app |
-| Nome App | "Vigontina Stats" | "Vigontina Stats RT" |
-| Scopo | Utilizzo reale | Test e sviluppo |
+## Esportazione
 
-## 🔧 Tecnologie
-
-- **Framework**: React 18 + Vite
-- **Styling**: Tailwind CSS  
-- **Database**: Firebase Firestore
-- **Export**: ExcelJS, jsPDF
-- **Icons**: Lucide React
-- **Deploy**: Vercel
-
-## ⚠️ Note Importanti
-
-- Questo è un **ambiente di test** - i dati non sono sincronizzati con produzione
-- Modifiche qui **non impattano** il sistema principale
-- Utilizzare per sperimentare nuove funzionalità in sicurezza
+- Export Excel/PDF per partita e storico
+- Report FIGC per partita corrente e storico
 
 ---
 
-**🔗 Repository Principale**: [vigontina-stats](https://github.com/enricobrunazzo/vigontina-stats)  
-**🎯 Ambiente Produzione**: [vigontina-stats.vercel.app](https://vigontina-stats.vercel.app)
+Per dettagli tecnici consultare i file: `LIVE_MATCH_FLOW.md`, `SETUP_FIREBASE.md` e il codice dei componenti in `src/components`.
