@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCkCMIaJ4SPCc33zQX9wpsTjXLIF1J-nWI",
-  authDomain: "vigontina-statsrt.firebaseapp.com",
-  databaseURL: "https://vigontina-statsrt-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "vigontina-statsrt",
-  storageBucket: "vigontina-statsrt.appspot.com",
-  messagingSenderId: "900486495437",
-  appId: "1:900486495437:web:902b81b77e42072c853d84"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
