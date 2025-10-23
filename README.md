@@ -46,3 +46,4 @@ Applicazione per la gestione live delle statistiche partita della Vigontina San 
 ---
 
 Per dettagli tecnici consultare i file: `LIVE_MATCH_FLOW.md`, `SETUP_FIREBASE.md` e il codice dei componenti in `src/components`.
+
