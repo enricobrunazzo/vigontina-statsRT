@@ -1,30 +1,14 @@
-// config/firebase.js
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC1Dw0zFBOYwW6uVfEa0zHC5YBOFUhHsmI",
-  authDomain: "vigontina-stats.firebaseapp.com",
-  databaseURL: "https://vigontina-stats-default-rtdb.europe-west1.firebasedatabase.app/",
-  projectId: "vigontina-stats",
-  storageBucket: "vigontina-stats.firebasestorage.app",
-  messagingSenderId: "979551248607",
-  appId: "1:979551248607:web:fb9b3092d79507ddaf896a",
+  apiKey: "AIzaSyCkCMIaJ4SPCc33zQX9wpsTjXLIF1J-nWI",
+  authDomain: "vigontina-statsrt.firebaseapp.com",
+  databaseURL: "https://vigontina-statsrt-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "vigontina-statsrt",
+  storageBucket: "vigontina-statsrt.appspot.com",
+  messagingSenderId: "900486495437",
+  appId: "1:900486495437:web:902b81b77e42072c853d84"
 };
 
-// Inizializza Firebase
 const app = initializeApp(firebaseConfig);
-
-// Inizializza Firestore (per dati storici)
-export const db = getFirestore(app);
-
-// Inizializza Realtime Database (per partite attive)
-export const realtimeDb = getDatabase(app);
-
-// Debug: verifica connessione
-if (typeof window !== 'undefined') {
-  console.log('Firebase Realtime Database configurato:', firebaseConfig.databaseURL);
-}
-
 export default app;
