@@ -1,0 +1,5 @@
+# Temporary rename to disable old workflow
+# This workflow is replaced by firebase-hosting-deploy-v2.yml
+# Rename back once the new workflow is confirmed working
+
+# Original filename was 'firebase-hosting-deploy.yml'
